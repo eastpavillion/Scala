@@ -34,7 +34,7 @@ def + (i: Int):Rational = new Rational( numer + i * denom, denom)
 
 //	Define a negative symbol
 def unary_- (that:Rational):Rational = new Rational( -numer, denom)
-//	Use the unary number to define - 
+//	Use the unary number to define -
 def - (that:Rational):Rational = this - that
 
 
@@ -56,6 +56,9 @@ def LessThan(that:Rational) =
 def Max(that:Rational) =
 //	Here ths "this" is referring to the object itself
 	if(LessThan(that)) that else this
+	
+// Allow integer multiple Rational number
+implicit def intToRational(x: Int) = new Rational(x)
 
 //	Define the private method gcd here , so as not to interrupt the normal code reading
 //	The algorithm used is Eudlid algorithm, which could date back to 300BC.
@@ -64,30 +67,31 @@ def Max(that:Rational) =
 		if ( b == 0) b else gcd(b, a%b)}
 }
 
-		
-	new Rational(1,2)                         //> res0: chapter6.first_step_to_Rational.Rational = 1/2
-	val x = new Rational(1,3)                 //> x  : chapter6.first_step_to_Rational.Rational = 1/3
-	val y = new Rational(5,7)                 //> y  : chapter6.first_step_to_Rational.Rational = 5/7
-	val z = x + y                             //> z  : chapter6.first_step_to_Rational.Rational = 22/21
+
+	new Rational(1,2)
+	val x = new Rational(1,3)
+	val y = new Rational(5,7)
+	val z = x + y
 
 	val a = new Rational(3)
 	val b = new Rational(6,4)
+	2 * x
 	x * y
 	
 
 //	One advantage of declaring fields in class is that the numerator and denominator could be assesed from outside
-	x.numer                                   //> res2: Int = 1
-	y.denom                                   //> res3: Int = 7
+	x.numer
+	y.denom
 //	Comment out below because it only shows the functionality of require
 //	val z = new Rational(5,0)
 
-//	Test LessThan works  
-  x LessThan y                                    //> res4: Boolean = true
+//	Test LessThan works
+  x LessThan y
 
-//	Test Max method works	
-	x Max y                                   //> res5: chapter6.first_step_to_Rational.Rational = 5/7
+//	Test Max method works
+	x Max y
 
-//	To test the auxiliary constructor 
+//	To test the auxiliary constructor
 	
 	
 }
