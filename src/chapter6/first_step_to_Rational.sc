@@ -68,14 +68,30 @@ implicit def intToRational(x: Int) = new Rational(x)
 }
 
 
-	new Rational(1,2)
+	new Rational(1,2)                         //> java.lang.ArithmeticException: / by zero
+                                                  //| 	at chapter6.first_step_to_Rational$Rational.<init>(chapter6.first_step_t
+                                                  //| o_Rational.scala:18)
+                                                  //| 	at chapter6.first_step_to_Rational$$anonfun$main$1.apply$mcV$sp(chapter6
+                                                  //| .first_step_to_Rational.scala:71)
+                                                  //| 	at org.scalaide.worksheet.runtime.library.WorksheetSupport$$anonfun$$exe
+                                                  //| cute$1.apply$mcV$sp(WorksheetSupport.scala:76)
+                                                  //| 	at org.scalaide.worksheet.runtime.library.WorksheetSupport$.redirected(W
+                                                  //| orksheetSupport.scala:65)
+                                                  //| 	at org.scalaide.worksheet.runtime.library.WorksheetSupport$.$execute(Wor
+                                                  //| ksheetSupport.scala:75)
+                                                  //| 	at chapter6.first_step_to_Rational$.main(chapter6.first_step_to_Rational
+                                                  //| .scala:68)
+                                                  //| 	at chapter6.first_step_to_Rational.main(chapter6.first_step_to_Rational.
+                                                  //| scala)
 	val x = new Rational(1,3)
 	val y = new Rational(5,7)
 	val z = x + y
 
 	val a = new Rational(3)
 	val b = new Rational(6,4)
-	2 * x
+	
+
+//	2 * x
 	x * y
 	
 
