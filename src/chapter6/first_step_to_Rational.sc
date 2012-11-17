@@ -57,7 +57,7 @@ def Max(that:Rational) =
 //	Here ths "this" is referring to the object itself
 	if(LessThan(that)) that else this
 	
-// Allow integer multiple Rational number
+
 
 
 //	Define the private method gcd here , so as not to interrupt the normal code reading
@@ -75,9 +75,14 @@ def Max(that:Rational) =
 
 	val a = new Rational(3)                   //> a  : chapter6.first_step_to_Rational.Rational = 3/1
 	val b = new Rational(6,4)                 //> b  : chapter6.first_step_to_Rational.Rational = 3/2
-	
-implicit def intToRational(x: Int) = new Rational(x)
-                                                  //> intToRational: (x: Int)chapter6.first_step_to_Rational.Rational
+
+object Rational{
+// Allow integer multiple Rational number
+	implicit def intToRational(x: Int) = new Rational(x)
+}
+
+import Rational.intToRational
+
 	2 * x                                     //> res1: chapter6.first_step_to_Rational.Rational = 2/1
 	x * y                                     //> res2: chapter6.first_step_to_Rational.Rational = 1/3
 	
