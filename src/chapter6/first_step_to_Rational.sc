@@ -58,54 +58,41 @@ def Max(that:Rational) =
 	if(LessThan(that)) that else this
 	
 // Allow integer multiple Rational number
-implicit def intToRational(x: Int) = new Rational(x)
+
 
 //	Define the private method gcd here , so as not to interrupt the normal code reading
 //	The algorithm used is Eudlid algorithm, which could date back to 300BC.
 
 	private def gcd(a: Int, b:Int) : Int ={
-		if ( b == 0) b else gcd(b, a%b)}
+		if ( b == 0) a else gcd(b, a % b)}
 }
 
 
-	new Rational(1,2)                         //> java.lang.ArithmeticException: / by zero
-                                                  //| 	at chapter6.first_step_to_Rational$Rational.<init>(chapter6.first_step_t
-                                                  //| o_Rational.scala:18)
-                                                  //| 	at chapter6.first_step_to_Rational$$anonfun$main$1.apply$mcV$sp(chapter6
-                                                  //| .first_step_to_Rational.scala:71)
-                                                  //| 	at org.scalaide.worksheet.runtime.library.WorksheetSupport$$anonfun$$exe
-                                                  //| cute$1.apply$mcV$sp(WorksheetSupport.scala:76)
-                                                  //| 	at org.scalaide.worksheet.runtime.library.WorksheetSupport$.redirected(W
-                                                  //| orksheetSupport.scala:65)
-                                                  //| 	at org.scalaide.worksheet.runtime.library.WorksheetSupport$.$execute(Wor
-                                                  //| ksheetSupport.scala:75)
-                                                  //| 	at chapter6.first_step_to_Rational$.main(chapter6.first_step_to_Rational
-                                                  //| .scala:68)
-                                                  //| 	at chapter6.first_step_to_Rational.main(chapter6.first_step_to_Rational.
-                                                  //| scala)
-	val x = new Rational(1,3)
-	val y = new Rational(5,7)
-	val z = x + y
+	new Rational(1,2)                         //> res0: chapter6.first_step_to_Rational.Rational = 1/2
+	val x = new Rational(1,3)                 //> x  : chapter6.first_step_to_Rational.Rational = 1/3
+	val y = new Rational(5,7)                 //> y  : chapter6.first_step_to_Rational.Rational = 5/7
+	val z = x + y                             //> z  : chapter6.first_step_to_Rational.Rational = 22/21
 
-	val a = new Rational(3)
-	val b = new Rational(6,4)
+	val a = new Rational(3)                   //> a  : chapter6.first_step_to_Rational.Rational = 3/1
+	val b = new Rational(6,4)                 //> b  : chapter6.first_step_to_Rational.Rational = 3/2
 	
-
-//	2 * x
-	x * y
+implicit def intToRational(x: Int) = new Rational(x)
+                                                  //> intToRational: (x: Int)chapter6.first_step_to_Rational.Rational
+	2 * x                                     //> res1: chapter6.first_step_to_Rational.Rational = 2/1
+	x * y                                     //> res2: chapter6.first_step_to_Rational.Rational = 1/3
 	
 
 //	One advantage of declaring fields in class is that the numerator and denominator could be assesed from outside
-	x.numer
-	y.denom
+	x.numer                                   //> res3: Int = 1
+	y.denom                                   //> res4: Int = 7
 //	Comment out below because it only shows the functionality of require
 //	val z = new Rational(5,0)
 
 //	Test LessThan works
-  x LessThan y
+  x LessThan y                                    //> res5: Boolean = true
 
 //	Test Max method works
-	x Max y
+	x Max y                                   //> res6: chapter6.first_step_to_Rational.Rational = 5/7
 
 //	To test the auxiliary constructor
 	
