@@ -33,4 +33,17 @@ else ( 0 to ((start-end)/(step.abs)).toInt) map ( x => start + x * step)
 //	cal2(3,5,0)
 	cal2(104,100,-0.5)                        //> res3: scala.collection.immutable.IndexedSeq[Double] = Vector(104.0, 103.5, 1
                                                   //| 03.0, 102.5, 102.0, 101.5, 101.0, 100.5, 100.0)
+	
+//	To make the functional more common, something common could be fetched.
+def cal3( start: Int, end: Int, step:Double) = {
+require (step != 0.0 )
+val tend = ((end - start)/step).toInt
+( 0 to tend) map ( x=> start + x * step)
+}                                                 //> cal3: (start: Int, end: Int, step: Double)scala.collection.immutable.Indexe
+                                                  //| dSeq[Double]
+	cal3(1,4,0.5)                             //> res4: scala.collection.immutable.IndexedSeq[Double] = Vector(1.0, 1.5, 2.0,
+                                                  //|  2.5, 3.0, 3.5, 4.0)
+  cal3(4,1,-0.5)                                  //> res5: scala.collection.immutable.IndexedSeq[Double] = Vector(4.0, 3.5, 3.0,
+                                                  //|  2.5, 2.0, 1.5, 1.0)
+  cal3(1,4,-0.3)                                  //> res6: scala.collection.immutable.IndexedSeq[Double] = Vector()
 }
